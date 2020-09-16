@@ -82,6 +82,7 @@ class App extends React.Component {
       return (
         <div className="app">
           <div className="container">
+            <h1 className="appTitle">Rakuten Grocery Finder</h1>
             <LoginForm />
           </div>
         </div>
