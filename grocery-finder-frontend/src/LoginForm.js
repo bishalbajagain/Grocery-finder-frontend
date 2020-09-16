@@ -51,6 +51,11 @@ async doSignUp(){
 
     });
     let result = await res.json();
+
+    if(result.status === 409){
+      alert(result.message);
+      return;
+    }
     if(result && result.success){
       UserStore.isLoggedIn = true;
       UserStore.username = result.username;
@@ -67,9 +72,11 @@ async doSignUp(){
         </div>);
     }
     
-    else if(result && result.success === false){
+    else if(result.success === false){
+      
+      alert(result.message);
       this.resetForm();
-      alert(result.msg);
+     
 
     }
 
