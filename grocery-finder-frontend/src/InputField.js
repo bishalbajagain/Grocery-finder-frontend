@@ -5,7 +5,7 @@ class InputField extends React.Component {
 
   render(){
   return (
-    <div className="inputFeild">
+    <div className="inputField">
 
       <input
       className = "input"

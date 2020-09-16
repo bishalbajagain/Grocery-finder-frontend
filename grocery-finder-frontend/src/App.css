@@ -3,55 +3,108 @@ body, html, #root, .app, .container {
   height: 100%;
 }
 
+/* reset css */
+h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,form,figure,form {margin: 0px;padding: 0px;font-size: 100%;font-weight:unset;}
+ul {list-style-type: none;}
+ol {padding-left: 4%;}
+img {border: none;max-width: 100%;height: auto;vertical-align: middle;}
+table {border-collapse:collapse;font-size: 100%;border-spacing: 0;}
+a {text-decoration: none;}
+a:hover {text-decoration: none;}
+a:focus, button:focus {outline: unset;}
+
 
 .container {
   font-size: 28px;
-  color: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #282c34;
+  background-color: #efefef;
+}
+
+/* ------------------------- */
+/* SignIn & SignUp Page */
+/* ------------------------- */
+
+.appTitle {
+  font-size: 48px;
+  margin-bottom: 36px;
+  color: #BF0000;
 }
 
 .loginForm {
- box-sizing: border-box;
- width: 100%;
- max-width: 400px;
- padding-left: 20px;
- padding-right: 20px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 500px;
+  padding: 40px 60px;
+  background-color: #ffffff;
+  border-radius: 4px;
+}
+
+.loginForm h2 {
+  margin-bottom: 8px;
+  color: #565656;
 }
 
 .inputField {
- padding-top: 16px;
+  padding-top: 16px;
 }
 
 .input {
- box-sizing: border-box;
- outline: none;
- border: solid 2px #1189de;
- border-radius: 4px;
- color: #292929;
- width: 100%;
- padding: 12px;
- font-size: 14px;
- background: rgba(255, 255, 255, 1);
+  box-sizing: border-box;
+  outline: none;
+  border-bottom: solid 2px #BF0000;
+  border-left: none;
+  border-right: none;
+  border-top-style: none;
+  color: #292929;
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  background: rgba(255, 255, 255, 1);
+}
+
+.inputField:nth-child(3) {
+  margin-bottom: 24px;
 }
 
 .submitButton {
- padding-top: 16px;
+  padding-top: 24px;
 }
-
 
 .btn {
- width: 100%;
- min-width: 280px;
- color: #565656;
- padding: 12px;
- font-size: 14px;
- font-weight: bold;
- border: solid 2px #1189de;
- border-radius: 4px;
- background: #fff;
- cursor: pointer;
+  width: 100%;
+  min-width: 280px;
+  color: #565656;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: bold;
+  border: solid 2px #BF0000;
+  border-radius: 4px;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
 }
+
+.btn:hover {
+  background-color: #BF0000;
+  color: #ffffff;
+  opacity: 0.8;
+}
+
+/* ------------------------- */
+/* Category Page */
+/* ------------------------- */
+
+
+
+/* ------------------------- */
+/* Ranking Page */
+/* ------------------------- */
+
+
+
+/* ------------------------- */
+/* Order Page */
+/* ------------------------- */

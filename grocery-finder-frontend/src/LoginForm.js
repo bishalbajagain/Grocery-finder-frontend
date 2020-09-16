@@ -152,10 +152,10 @@ resetForm(){
   render(){
   return (
     <div className="loginForm">
-      Log in / Sign up
+      <h2>Sign In / Sign Up</h2>
       <InputField
       type = 'text'
-      placeholder= 'username'
+      placeholder= 'Username'
       value= {this.state.username? this.state.username :  ''}
       onChange = {(val) => this.setInputValue('username',val)}
       />
@@ -168,12 +168,12 @@ resetForm(){
       />
 
       <SubmitButton
-         text = 'LogIn'
+         text = 'Sign In'
          disabled = {this.state.buttonDisabled}
          onClick = {()=>this.doLogin()}
       />
       <SubmitButton
-         text = 'SignUp'
+         text = 'Sign Up'
          disabled = {this.state.buttonDisabled}
          onClick = {()=>{this.doSignUp(); this.handleToAboutPage()}}
       />
