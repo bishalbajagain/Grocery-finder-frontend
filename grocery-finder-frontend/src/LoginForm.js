@@ -3,6 +3,8 @@ import InputField from './InputField';
 import SubmitButton from './SubmitButton';
 import UserStore from './stores/UserStore';
 
+import { withRouter } from 'react-router';
+
 
 
 class LoginForm extends React.Component {
@@ -136,6 +138,10 @@ async doLogin(){
 
 }
 
+handleToAboutPage = () => {
+  this.props.history.push('/home')
+}
+
 resetForm(){
   this.setState({
       username: "",
@@ -169,7 +175,7 @@ resetForm(){
       <SubmitButton
          text = 'SignUp'
          disabled = {this.state.buttonDisabled}
-         onClick = {()=>this.doSignUp()}
+         onClick = {()=>{this.doSignUp(); this.handleToAboutPage()}}
       />
      
     </div>
@@ -179,4 +185,4 @@ resetForm(){
 }
 }
 
-export default LoginForm;
+export default withRouter(LoginForm);
