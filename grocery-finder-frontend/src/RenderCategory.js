@@ -24,7 +24,7 @@ class RenderCategory extends React.Component {
         return (arr_json.map((data, index) => {
             return (
                 <div>
-                    <Link to={data.categoryUrl}>
+                    <Link to={"/recipe-ranking/"+ data.categoryId}>
                     <div> categoryName: {data.categoryName} </div>
                     </Link>
                     <div> categoryId: {data.categoryId} </div>

@@ -25,7 +25,7 @@ class App extends React.Component {
         <Route exact path="/home" component={Home} />
         <Route exact path="/" component={SignPage} />
         <Route exact path="/recipe-catagory" component={RecipieCatagoryPage} />
-        <Route exact path="/recipe-ranking" component={RecipieRankingPage} />
+        <Route exact path="/recipe-ranking/:id(\d+)" component={RecipieRankingPage} />
         <Route exact path="/404" component={NotFoundPage} />
         <Redirect to="/404" />
       </Switch>
