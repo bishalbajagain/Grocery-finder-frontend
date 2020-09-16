@@ -7,7 +7,6 @@ import LoginForm from "../LoginForm";
 
 
 const SignPage = () => {
-
     return (
         <div>
             <h3>Welcome to the sign In Page</h3>
@@ -16,13 +15,6 @@ const SignPage = () => {
                 Goto Recipie Catagory List</Link>
             <LoginForm />
         </div>
-
-
-
     );
-
-
-
-
 };
 export default SignPage;
