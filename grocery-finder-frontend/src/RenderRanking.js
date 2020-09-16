@@ -40,8 +40,8 @@ class RenderRanking extends React.Component {
             this.setState({
                 category_id: window.location.href.split('/')[4],
                 loading: true
-            });
-            fetch("http://localhost:8000/api/recipie-catagory-ranking", {
+            },
+            () => fetch("http://localhost:8000/api/recipie-catagory-ranking/"+ this.state.category_id,{
                 method: "get",
                 mode: 'cors',
                 headers: {
@@ -58,7 +58,7 @@ class RenderRanking extends React.Component {
                 })
                 .catch(err => {
                     return (<div> something error  </div>);
-                });
+                }));
 
         }
         return (
