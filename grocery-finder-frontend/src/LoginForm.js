@@ -138,8 +138,8 @@ async doLogin(){
 
 }
 
-handleToAboutPage = () => {
-  this.props.history.push('/home')
+handlertoMainPage = () => {
+  this.props.history.push('/recipe-catagory')
 }
 
 resetForm(){
@@ -170,12 +170,12 @@ resetForm(){
       <SubmitButton
          text = 'Sign In'
          disabled = {this.state.buttonDisabled}
-         onClick = {()=>this.doLogin()}
+         onClick = {()=>{this.doLogin();this.handlertoMainPage()}}
       />
       <SubmitButton
          text = 'Sign Up'
          disabled = {this.state.buttonDisabled}
-         onClick = {()=>{this.doSignUp(); this.handleToAboutPage()}}
+         onClick = {()=>{this.doSignUp(); this.handlertoMainPage()}}
       />
      
     </div>
