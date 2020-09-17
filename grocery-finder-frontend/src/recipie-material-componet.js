@@ -17,6 +17,7 @@ class recipieMaterialComponent extends React.Component {
     const data = await response.json();
     this.setState({ materials: data.materials, loading: false });
     const materials_copy = this.state.materials;
+    
     for (let i = 0; i < this.state.materials.length; ++i) {
       const res_item = await fetch("http://localhost:8000/api/item-search/" + this.state.materials[i].name);
       const json_item = await res_item.json();

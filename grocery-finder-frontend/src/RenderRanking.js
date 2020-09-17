@@ -1,10 +1,10 @@
 import React from 'react';
-import InputField from './InputField';
-import SubmitButton from './SubmitButton';
-import UserStore from './stores/UserStore';
-import axios from "axios";
-import cred from "./cred.json";
-import config from "./config.json";
+// import InputField from './InputField';
+// import SubmitButton from './SubmitButton';
+// import UserStore from './stores/UserStore';
+// import axios from "axios";
+// import cred from "./cred.json";
+// import config from "./config.json";
 
 import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
@@ -24,12 +24,16 @@ class RenderRanking extends React.Component {
         const arr_json = this.state.arr_json;
         return (arr_json.map((data, index) => {
             return (
-                <div>
+                <li className="rankingItem">
+                    <h2>カテゴリーランキング<span className="ranking">{data.rank}位</span></h2>
+                    {/* <Link to={"/recipe-ranking/" + data.categoryId}> */}
                     <Link to={"/materials-list/" + data.recipeId}>
-                        <img src={data.foodImageUrl}  width="128" height="128"/>
-                        <div> recipe title: {data.recipeTitle} </div>
+                        <div className="flexBox">
+                            <img src={data.foodImageUrl}/>
+                            <p>{data.recipeTitle}</p>
+                        </div>                        
                     </Link>
-                </div>
+                </li>
             )
         }
         ))

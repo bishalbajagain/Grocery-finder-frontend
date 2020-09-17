@@ -8,12 +8,10 @@ import LoginForm from "../LoginForm";
 
 const SignPage = () => {
     return (
-        <div>
-            <h3>Welcome to the sign In Page</h3>
-            <small>SignPage</small>
-            <Link to="/recipe-catagory">
-                Goto Recipie Catagory List</Link>
+        <div className="container">
+            <h1>Welcome to<br></br><span>akuten Grocery Finder</span></h1>
             <LoginForm />
+            <Link className="toNextPage" to="/recipe-catagory">Goto Recipie Catagory List</Link>
         </div>
     );
 };

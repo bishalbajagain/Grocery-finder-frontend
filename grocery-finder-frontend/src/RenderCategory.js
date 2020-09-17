@@ -1,10 +1,10 @@
 import React from 'react';
-import InputField from './InputField';
-import SubmitButton from './SubmitButton';
-import UserStore from './stores/UserStore';
-import axios from "axios";
-import cred from "./cred.json";
-import config from "./config.json";
+// import InputField from './InputField';
+// import SubmitButton from './SubmitButton';
+// import UserStore from './stores/UserStore';
+// import axios from "axios";
+// import cred from "./cred.json";
+// import config from "./config.json";
 
 import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
@@ -23,12 +23,11 @@ class RenderCategory extends React.Component {
         const arr_json = this.state.arr_json;
         return (arr_json.map((data, index) => {
             return (
-                <div>
+                <li className="categoryItem">
                     <Link to={"/recipe-ranking/"+ data.categoryId}>
-                    <div> categoryName: {data.categoryName} </div>
+                    {data.categoryName}
                     </Link>
-                    <div> categoryId: {data.categoryId} </div>
-                </div>
+                </li>
             )
         }
         ))
@@ -56,7 +55,7 @@ class RenderCategory extends React.Component {
                 });
         }
         return (
-            <div>{this.renderTable()}</div>
+            <ul className="categoryItems">{this.renderTable()}</ul>
         );
 
     }
