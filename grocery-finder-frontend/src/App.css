@@ -282,6 +282,18 @@ a:focus, button:focus {outline: unset;}
 	border-radius: 8px;
 }
 
+.rankingItem a {
+	transition: all 0.5 ease-in-out;
+}
+
+.rankingItem a:hover {
+	opacity: 0.8;
+}
+
+.rankingItem a:hover p {
+	text-decoration: underline;
+}
+
 .rankingItem h2 span {
 	color: #BF0000;
 	font-weight: bold;
@@ -305,7 +317,6 @@ a:focus, button:focus {outline: unset;}
 .flexBox p {
 	font-size: 24px;
 	padding: 20px;
-	text-decoration: underline;
 }
 
 /* ------------------------- */
