@@ -34,7 +34,7 @@ class recipieMaterialComponent extends React.Component {
       //   "https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706?applicationId=1013628348561559421&keyword="
       //   + this.state.materials[i].name);
       // const json_item = await res_item.json();
-      axios.get("http://localhost:8000/api/item-search/" + this.state.materials[i].name)
+      axios.get("https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706?applicationId=1013628348561559421&keyword=" + this.state.materials[i].name)
         // .then(res => {
         //   res.data
         // })
@@ -58,8 +58,8 @@ class recipieMaterialComponent extends React.Component {
       //   url: json_item.Items[0].Item.itemUrl,
       //   // items: json_item.Items.slice(9)
       // };
-      // if ((i + 1) % 3 === 0) {
-        await sleep(2000);
+      // if ((i + 1) % 2 === 0) {
+        await sleep(1200);
       // }
     };
     this.setState({
