@@ -7,8 +7,8 @@ import RenderMaterials from "../RenderMaterials";
 
 const MaterialsListPage = () => {
     return (
-        <div>
-            <h3>This is the materials list Page</h3>
+        <div className="materialsContainer">
+            <h1>This is the materials list Page</h1>
             <RenderMaterials />
         </div>
 

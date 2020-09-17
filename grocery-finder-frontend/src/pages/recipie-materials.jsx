@@ -1,19 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import {BrowserRouter as Router , Route,Switch,link,Redirect, Link} from "react-router-dom";
 import RecipieMaterialComponent from "../recipie-material-componet";
 
-
 const RecipieMaterialPage= () =>{
 
-return(
-<div>
-    <h3>This is the recipie Material Page</h3>
+    const [value, setValue] = useState("");
 
-    
-     <RecipieMaterialComponent/>
-    </div>
+    return(
+        <div className="materialsContainer">
+            <h1>{value}</h1>
+            <RecipieMaterialComponent
+                setValue = {setValue}
+            />
+        </div>
 
-);
+    );
 
 };
 export default RecipieMaterialPage;

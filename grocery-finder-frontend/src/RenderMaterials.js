@@ -23,7 +23,7 @@ class RenderMaterials extends React.Component {
     renderTable() {
         const materials = this.state.materials;
         return (
-                <div>
+                <div className="materialsContainer">
                     there should be materials list              
                 
                 {this.state.materials.map(function(d,idx)

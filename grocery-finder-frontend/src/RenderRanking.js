@@ -20,14 +20,26 @@ class RenderRanking extends React.Component {
         };
     }
 
+    // onClick(value) {
+    //     console.log(value);
+    //     this.props.history.push({
+    //         pathname: "http://localhost:3000/materials-list/1620025077",
+    //         state: { title: value }
+    //     });
+    // }
+
     renderTable() {
         const arr_json = this.state.arr_json;
         return (arr_json.map((data, index) => {
             return (
-                <li className="rankingItem">
+                <li key={data.rank} className="rankingItem">
                     <h2>カテゴリーランキング<span className="ranking">{data.rank}位</span></h2>
                     {/* <Link to={"/recipe-ranking/" + data.categoryId}> */}
-                    <Link to={"/materials-list/" + data.recipeId}>
+                    <Link to={{
+                        pathname: "/materials-list/" + data.recipeId,
+                        search: "?query=abc",
+                        state: {title: data.recipeTitle}
+                    }}>
                         <div className="flexBox">
                             <img src={data.foodImageUrl}/>
                             <p>{data.recipeTitle}</p>
@@ -71,4 +83,5 @@ class RenderRanking extends React.Component {
 
     }
 }
+
 export default withRouter(RenderRanking);
