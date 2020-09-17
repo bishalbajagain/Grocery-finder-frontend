@@ -3,6 +3,7 @@ import InputField from "./InputField";
 import SubmitButton from "./SubmitButton";
 import UserStore from "./stores/UserStore";
 import { withRouter } from "react-router";
+import { ExternalLink } from 'react-external-link';
 
 class recipieMaterialComponent extends React.Component {
   state = {
@@ -23,7 +24,7 @@ class recipieMaterialComponent extends React.Component {
         name: this.state.materials[i].name,
         amount: this.state.materials[i].amount,
         item: json_item.Items[0].Item.mediumImageUrls[0].imageUrl,
-        // url: json_item.Items[0].Item.itemUrl
+        url: json_item.Items[0].Item.itemUrl
       };
     };
     this.setState({
@@ -40,16 +41,16 @@ class recipieMaterialComponent extends React.Component {
         {this.state.loading ? <div>loading...</div> :
           <div>{this.state.materials.map(function (d, idx) {
             return (
-              // <li key={idx}>{d.name}  ({d.amount} )
+              <li key={idx}>{d.name}  ({d.amount} )
               <div >
-                <a href={d.url} > link </a>
-              {/* <img src= {d.item} /> */}
+                <ExternalLink href={d.url}>
+              <img src= {d.item} />
+              </ExternalLink>
               </div>
-              // </li>
+              </li>
             )
 
           })
-
           }
           </div>}
       </div>
