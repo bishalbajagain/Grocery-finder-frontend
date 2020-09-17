@@ -311,6 +311,7 @@ a:focus, button:focus {outline: unset;}
 	margin: 0 auto;
 	padding: 0;
 	background: #F7EEDD;
+	min-height: 100vh;
 }
 
 .materialsContainer h1 {
@@ -324,8 +325,36 @@ a:focus, button:focus {outline: unset;}
 	background: #ffffff;
 }
 
-.materialItems {
-	max-width: 1024px;
-	margin: 0 auto;
+.materialContainer {
+	position: relative;
 }
 
+.materialContainer h2 {
+	max-width: 1024px;
+	margin: 0 auto;
+	font-size: 36px;
+	font-weight: bold;
+	margin-bottom: 40px;
+}
+
+.materialContainer img {
+	width: 384px;
+	height: 384px;
+	object-fit: cover;
+	position: absolute;
+	top: 0;
+	right: 208px;
+	border: 1px solid #F79E2D;
+	border-radius: 8px;
+}
+
+.materialItems {
+	max-width: 640px;
+	padding-left: 208px;
+	padding-bottom: 80px;
+}
+
+.materialItems li {
+	font-size: 28px;
+	margin-bottom: 20px;
+}

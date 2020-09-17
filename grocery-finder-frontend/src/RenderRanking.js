@@ -38,7 +38,10 @@ class RenderRanking extends React.Component {
                     <Link to={{
                         pathname: "/materials-list/" + data.recipeId,
                         search: "?query=abc",
-                        state: {title: data.recipeTitle}
+                        state: {
+                            title: data.recipeTitle,
+                            imgUrl: data.foodImageUrl,
+                        }
                     }}>
                         <div className="flexBox">
                             <img src={data.foodImageUrl}/>

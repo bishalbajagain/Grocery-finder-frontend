@@ -13,11 +13,12 @@ class recipieMaterialComponent extends React.Component {
 
   async componentDidMount() {
     const title = this.props.location.state.title;
+    const imgUrl = this.props.location.state.imgUrl;
     this.props.setValue(title);
     const id = window.location.href.split('/')[4];
     const response = await fetch("http://localhost:8000/api/user-getMaterials/" + id);
     const data = await response.json();
-    this.setState({ materials: data.materials, loading: false });
+    this.setState({ materials: data.materials, loading: false, imgUrl: imgUrl });
     const materials_copy = this.state.materials;
 
     // for (let i = 0; i < this.state.materials.length; ++i) {
@@ -42,6 +43,9 @@ class recipieMaterialComponent extends React.Component {
   render() {
     return (
       <div className="materialContainer">
+        <h2>材料</h2>
+        <img src={this.state.imgUrl} />
+        {console.log(this.state.imgUrl)}
         {this.state.loading ? <div>loading...</div> :
           <ul className="materialItems">{this.state.materials.map(function (d, idx) {
             return (
@@ -57,7 +61,8 @@ class recipieMaterialComponent extends React.Component {
 
           })
           }
-          </ul>}
+          </ul>
+        }
       </div>
     );
   }
