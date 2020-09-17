@@ -15,30 +15,36 @@ class RenderMaterials extends React.Component {
         super(props);
         this.state = {
             loading: false,
-            arr_json: [{}],
-            category_id: 111
+            materials: {},
+            creciepe_id: 111
         };
     }
 
     renderTable() {
-        const arr_json = this.state.arr_json;
-        return (arr_json.map((data, index) => {
-            return (
+        const materials = this.state.materials;
+        return (
                 <div>
                     there should be materials list              
+                
+                {this.state.materials.map(function(d,idx)
+                    {
+                    return(
+                    <li key={idx}>{d.name}  ({d.amount} )  </li>)
+                    
+                    })}
                 </div>
-            )
-        }
-        ))
+            
+        
+        )
     };
 
     render() {
         if (!this.state.loading) {
             this.setState({
-                category_id: window.location.href.split('/')[4],
+                reciepe_id: window.location.href.split('/')[4],
                 loading: true
             },
-            () => fetch("http://localhost:8000/api/recipie-catagory-ranking/"+ this.state.category_id,{
+            () => fetch("http://localhost:8000/api/user-getMaterials",{
                 method: "get",
                 mode: 'cors',
                 headers: {
@@ -50,7 +56,7 @@ class RenderMaterials extends React.Component {
                 .then(data => {
                     this.setState({
                         loading: true,
-                        arr_json: data
+                        materials: data.materials
                     })
                 })
                 .catch(err => {

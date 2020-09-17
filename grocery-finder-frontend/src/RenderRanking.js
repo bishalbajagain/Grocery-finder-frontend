@@ -25,7 +25,7 @@ class RenderRanking extends React.Component {
         return (arr_json.map((data, index) => {
             return (
                 <div>
-                    <Link to={"/materials-list/12"}>
+                    <Link to={"/materials-list/" + data.recipeId}>
                         <img src={data.foodImageUrl}  width="128" height="128"/>
                         <div> recipe title: {data.recipeTitle} </div>
                     </Link>
