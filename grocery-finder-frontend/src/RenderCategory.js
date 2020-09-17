@@ -33,26 +33,30 @@ class RenderCategory extends React.Component {
         ))
     };
 
+    async componentDidMount() {
+        fetch("http://localhost:8000/api/recipie-catagory-list", {
+            method: "get",
+            mode: 'cors',
+            headers: {
+                "Accept": "application/json",
+                // "Content-Type": "application/json"
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                this.setState({
+                    loading: true,
+                    arr_json: data
+                })
+            })
+            .catch(err => {
+                return (<div> something error  </div>);
+            });
+    };
+
     render() {
         if (!this.state.loading) {
-            fetch("http://localhost:8000/api/recipie-catagory-list", {
-                method: "get",
-                mode: 'cors',
-                headers: {
-                    "Accept": "application/json",
-                    // "Content-Type": "application/json"
-                }
-            })
-                .then(res => res.json())
-                .then(data => {
-                    this.setState({
-                        loading: true,
-                        arr_json: data
-                    })
-                })
-                .catch(err => {
-                    return (<div> something error  </div>);
-                });
+            
         }
         return (
             <ul className="categoryItems">{this.renderTable()}</ul>
