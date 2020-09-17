@@ -12,6 +12,7 @@ import SignPage from "./pages/index"
 import NotFoundPage from "./pages/404"
 import RecipieCatagoryPage from "./pages/recipe-catagory"
 import RecipieRankingPage from "./pages/recipie-ranking"
+import MaterialsListPage from "./pages/materials-list"
 import Home from "./pages/Home"
 
 
@@ -26,6 +27,8 @@ class App extends React.Component {
         <Route exact path="/" component={SignPage} />
         <Route exact path="/recipe-catagory" component={RecipieCatagoryPage} />
         <Route exact path="/recipe-ranking/:id(\d+)" component={RecipieRankingPage} />
+        <Route exact path="/materials-list/:id(\d+)" component={MaterialsListPage} />
+        <Route exact path="/" component={RecipieRankingPage} />
         <Route exact path="/404" component={NotFoundPage} />
         <Redirect to="/404" />
       </Switch>

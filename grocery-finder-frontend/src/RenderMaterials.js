@@ -10,7 +10,7 @@ import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 
 
-class RenderRanking extends React.Component {
+class RenderMaterials extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -25,10 +25,7 @@ class RenderRanking extends React.Component {
         return (arr_json.map((data, index) => {
             return (
                 <div>
-                    <Link to={"/materials-list/12"}>
-                        <img src={data.foodImageUrl}  width="128" height="128"/>
-                        <div> recipe title: {data.recipeTitle} </div>
-                    </Link>
+                    there should be materials list              
                 </div>
             )
         }
@@ -67,4 +64,4 @@ class RenderRanking extends React.Component {
 
     }
 }
-export default withRouter(RenderRanking);
+export default withRouter(RenderMaterials);
