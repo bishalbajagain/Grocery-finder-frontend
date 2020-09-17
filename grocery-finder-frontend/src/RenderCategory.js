@@ -23,7 +23,7 @@ class RenderCategory extends React.Component {
         const arr_json = this.state.arr_json;
         return (arr_json.map((data, index) => {
             return (
-                <li className="categoryItem" key={data.categoryId}>
+                <li key={data.categoryId}>
                     <Link to={"/recipe-ranking/"+ data.categoryId}>
                     {data.categoryName}
                     </Link>

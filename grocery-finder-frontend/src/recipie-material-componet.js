@@ -12,6 +12,8 @@ class recipieMaterialComponent extends React.Component {
   };
 
   async componentDidMount() {
+    const title = this.props.location.state.title;
+    this.props.setValue(title);
     const id = window.location.href.split('/')[4];
     const response = await fetch("http://localhost:8000/api/user-getMaterials/" + id);
     const data = await response.json();
@@ -39,11 +41,11 @@ class recipieMaterialComponent extends React.Component {
 
   render() {
     return (
-      <div className="materials">
+      <div className="materialContainer">
         {this.state.loading ? <div>loading...</div> :
           <ul className="materialItems">{this.state.materials.map(function (d, idx) {
             return (
-              <li className="materialItem" key={idx}>{d.name}  ({d.amount} )
+              <li key={idx}>{d.name}  ({d.amount} )
               <ul>
                 {/* <ExternalLink href={d.url}> */}
               {/* <img src= {d.item} /> */}
