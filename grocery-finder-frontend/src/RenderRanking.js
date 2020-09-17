@@ -24,9 +24,10 @@ class RenderRanking extends React.Component {
         const arr_json = this.state.arr_json;
         return (arr_json.map((data, index) => {
             return (
-                <li className="rankingItem">
+                <li key={data.rank} className="rankingItem">
                     <h2>カテゴリーランキング<span className="ranking">{data.rank}位</span></h2>
-                    <Link to={"/recipe-ranking/" + data.categoryId}>
+                    {/* <Link to={"/recipe-ranking/" + data.categoryId}> */}
+                    <Link to={"/materials-list/" + data.recipeId}>
                         <div className="flexBox">
                             <img src={data.foodImageUrl}/>
                             <p>{data.recipeTitle}</p>
