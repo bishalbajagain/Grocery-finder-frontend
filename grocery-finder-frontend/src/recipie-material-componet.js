@@ -12,7 +12,6 @@ const sleep = msec => new Promise(resolve => setTimeout(resolve, msec));
 class recipieMaterialComponent extends React.Component {
   state = {
     loading: true,
-    data: {},
   };
   sleep(waitMsec) {
     var startMsec = new Date();
@@ -27,47 +26,64 @@ class recipieMaterialComponent extends React.Component {
     const id = window.location.href.split('/')[4];
     const response = await fetch("http://localhost:8000/api/user-getMaterials/" + id);
     const data = await response.json();
-    this.setState({ materials: data.materials, loading: false });
+    this.setState({ materials: data.materials, loading: false, loadings: Array(data.materials.length).fill(true) });
     const materials_copy = this.state.materials;
-
     for (let i = 0; i < this.state.materials.length; ++i) {
-      // const res_item = await fetch("http://localhost:8000/api/item-search/" + this.state.materials[i].name);
-      // const res_item = await fetch(
-      //   "https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706?applicationId=1013628348561559421&keyword="
-      //   + this.state.materials[i].name);
-      // const json_item = await res_item.json();
       axios.get("https://app.rakuten.co.jp/services/api/IchibaItem/Search/20170706?applicationId=1013628348561559421&keyword=" + this.state.materials[i].name)
-        // .then(res => {
-        //   res.data
-        // })
         .then(res => {
+          // const Items =
+          //   res.data.Items.map((element, idx) => {
+          //     return ({
+          //       itemName: element.Item.itemName,
+          //       itemUrl: element.Item.itemUrl,
+          //       imageUrl: element.Item.mediumImageUrls[0].imageUrl,
+          //       loding: true
+          //     })
+          //   });
+          const materials_copy = this.state.materials;
           materials_copy[i] = {
             name: this.state.materials[i].name,
             amount: this.state.materials[i].amount,
-            item: res.data.Items[0].Item.mediumImageUrls[0].imageUrl,
-            url: res.data.Items[0].Item.itemUrl,
-            // items: json_item.Items.slice(9)
-          };
+
+            imageUrl0: res.data.Items[0].Item.mediumImageUrls[0].imageUrl,
+            itemUrl0: res.data.Items[0].Item.itemUrl,
+            itemName0: res.data.Items[0].Item.itemName,
+
+            imageUrl1: res.data.Items[1].Item.mediumImageUrls[0].imageUrl,
+            itemUrl1: res.data.Items[1].Item.itemUrl,
+            itemName1: res.data.Items[1].Item.itemName,
+
+            imageUrl2: res.data.Items[2].Item.mediumImageUrls[0].imageUrl,
+            itemUrl2: res.data.Items[2].Item.itemUrl,
+            itemName2: res.data.Items[2].Item.itemName,
+
+            imageUrl3: res.data.Items[3].Item.mediumImageUrls[0].imageUrl,
+            itemUrl3: res.data.Items[3].Item.itemUrl,
+            itemName3: res.data.Items[3].Item.itemName,
+
+            imageUrl4: res.data.Items[4].Item.mediumImageUrls[0].imageUrl,
+            itemUrl4: res.data.Items[4].Item.itemUrl,
+            itemName4: res.data.Items[4].Item.itemName,
+          }
+        })
+        .then(res => {
+          this.setState({
+            materials: materials_copy
+          })
+        })
+        .then(res => {
+          const loadings_copy = this.state.loadings;
+          loadings_copy[i] = false;
+          this.setState({ loadings: loadings_copy });
         })
         .catch(err => {
           console.log(err);
         });
-
-      // materials_copy[i] = {
-      //   name: this.state.materials[i].name,
-      //   amount: this.state.materials[i].amount,
-      //   item: json_item.Items[0].Item.mediumImageUrls[0].imageUrl,
-      //   url: json_item.Items[0].Item.itemUrl,
-      //   // items: json_item.Items.slice(9)
-      // };
-      // if ((i + 1) % 2 === 0) {
-        await sleep(1200);
-      // }
+      await sleep(3000);
     };
     this.setState({
       materials: materials_copy
     })
-    console.log(this.state.materials.items);
     // }
     console.log(this.state);
   }
@@ -76,14 +92,37 @@ class recipieMaterialComponent extends React.Component {
     return (
       <div className="materialContainer">
         {this.state.loading ? <div>loading...</div> :
-          <ul className="materialItems">{this.state.materials.map(function (d, idx) {
+          <ul className="materialItems">{this.state.materials.map(function (material, idx) {
             return (
-              <li key={idx}>{d.name}  ({d.amount} )
-                <div >
-                  <ExternalLink href={d.url}>
-                    <img src={d.item} />
-                  </ExternalLink>
-                </div>
+              <li key={idx}>{material.name}  ({material.amount} )
+                  <div>
+                    <ExternalLink href={material.itemUrl0}>
+                      <div>{material.itemName0}</div>
+                      <img src={material.imageUrl0} />
+                    </ExternalLink>
+
+
+                    <ExternalLink href={material.itemUrl1}>
+                      <div>{material.itemName1}</div>
+                      <img src={material.imageUrl1} />
+                    </ExternalLink>
+
+                    <ExternalLink href={material.itemUrl2}>
+                      <div>{material.itemName2}</div>
+                      <img src={material.imageUrl2} />
+                    </ExternalLink>
+
+                    <ExternalLink href={material.itemUrl3}>
+                      <div>{material.itemName3}</div>
+                      <img src={material.imageUrl3} />
+                    </ExternalLink>
+
+                    <ExternalLink href={material.itemUrl4}>
+                      <div>{material.itemName4}</div>
+                      <img src={material.imageUrl4} />
+                    </ExternalLink>
+                  </div>
+                
               </li>
             )
           })
