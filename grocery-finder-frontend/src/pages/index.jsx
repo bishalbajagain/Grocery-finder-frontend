@@ -11,7 +11,6 @@ const SignPage = () => {
         <div className="container">
             <h1>Welcome to<br></br><span>akuten Grocery Finder</span></h1>
             <LoginForm />
-            <Link className="toNextPage" to="/recipe-catagory">Goto Recipie Catagory List</Link>
         </div>
     );
 };

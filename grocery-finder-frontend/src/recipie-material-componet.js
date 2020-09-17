@@ -91,35 +91,37 @@ class recipieMaterialComponent extends React.Component {
   render() {
     return (
       <div className="materialContainer">
+        <h2>材料</h2>
         {this.state.loading ? <div>loading...</div> :
           <ul className="materialItems">{this.state.materials.map(function (material, idx) {
             return (
-              <li key={idx}>{material.name}  ({material.amount} )
+              <li key={idx}>
+                <h3>{material.name}  ({material.amount} )</h3>
                   <div>
                     <ExternalLink href={material.itemUrl0}>
-                      <div>{material.itemName0}</div>
                       <img src={material.imageUrl0} />
+                      <h4>{material.itemName0}</h4>
                     </ExternalLink>
 
 
                     <ExternalLink href={material.itemUrl1}>
-                      <div>{material.itemName1}</div>
                       <img src={material.imageUrl1} />
+                      <h4>{material.itemName1}</h4>
                     </ExternalLink>
 
                     <ExternalLink href={material.itemUrl2}>
-                      <div>{material.itemName2}</div>
                       <img src={material.imageUrl2} />
+                      <h4>{material.itemName2}</h4>
                     </ExternalLink>
 
                     <ExternalLink href={material.itemUrl3}>
-                      <div>{material.itemName3}</div>
                       <img src={material.imageUrl3} />
+                      <h4>{material.itemName3}</h4>
                     </ExternalLink>
 
                     <ExternalLink href={material.itemUrl4}>
-                      <div>{material.itemName4}</div>
                       <img src={material.imageUrl4} />
+                      <h4>{material.itemName4}</h4>
                     </ExternalLink>
                   </div>
                 
